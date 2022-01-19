@@ -24,7 +24,8 @@ function MyApp() {
 
     function updateList(person) { 
         makePostCall(person).then( result => {
-        if (result && result.status === 200)
+            console.log(result);
+        if (result && result.status === 201)
            setCharacters([...characters, person] );
         });
     }
@@ -47,11 +48,12 @@ function MyApp() {
            return response;
         }
         catch (error) {
+        
            console.log(error);
            return false;
         }
     }
-
+    
     return (
         <div className="container">
             <Table characterData={characters} removeCharacter={removeOneCharacter} />
